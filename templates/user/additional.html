@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추가 정보 입력</title>
+</head>
+<body>
+    <h1>추가 정보 입력</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="height">키:</label>
+        <input type="text" name="height" id="height" required><br>
+        <label for="weight">몸무게:</label>
+        <input type="text" name="weight" id="weight" required><br>
+        <label for="age">나이:</label>
+        <input type="text" name="age" id="age" required><br>
+        <label for="gender">성별:</label>
+        <select name="gender" id="gender" required>
+            <option value="M">남성</option>
+            <option value="F">여성</option>
+            <option value="O">기타</option>
+        </select><br>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>

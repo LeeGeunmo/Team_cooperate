@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 활동 수준  입력</title>
+</head>
+<body>
+    <h1>활동 수준 입력</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="fitness_goal">운동 목표:</label>
+        <select name="activity_level" id="activity_level" required>
+            <option value="0">주 0회</option>
+            <option value="1-2">주 1-2회</option>
+            <option value="3-4">주 3-4회</option>
+            <option value="5-7">주 5-7회</option>
+        </select><br>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>

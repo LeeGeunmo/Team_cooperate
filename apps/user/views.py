@@ -25,10 +25,13 @@ def login(request):
         else:
             print('login')
             auth.login(request, user)
-            user = User.objects.get(username=user.username)
             return redirect('user:main')
         
     return render(request, 'user/login.html') 
+
+def logout(request) :
+    auth.logout(request)
+    return redirect(reverse('user:main'))
 
 def signup(request):   
     if request.method == 'POST':
@@ -60,4 +63,34 @@ def signup(request):
             return render(request, 'user/signup.html', {'error_message': '이미 해당 아이디로 가입된 유저가 있습니다.'})
 
     return render(request, 'user/signup.html')
+
+def additional(request):
+    if request.method == 'POST':
+        user = request.user
+        user.height = request.POST['height']
+        user.weight = request.POST['weight']
+        user.age = request.POST['age']
+        user.gender = request.POST['gender']
+        user.save()
+        return redirect('user:main')
+
+    return render(request, 'user/additional.html')
+
+def additional_fitness_goal(request):
+    if request.method == 'POST':
+        user = request.user
+        user.fitness_goal = request.POST['fitness_goal']
+        user.save()
+        return redirect('user:main')
+
+    return render(request, 'user/additional_fitness_goal.html')
+
+def additional_activity_level(request):
+    if request.method == 'POST':
+        user = request.user
+        user.activity_level = request.POST['activity_level']
+        user.save()
+        return redirect('user:main')
+
+    return render(request, 'user/additional_activity_level.html')
         

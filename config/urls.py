@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import apps.user.urls
+import apps.fitness.urls
+import apps.community.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include(apps.user.urls)),
+    # path('fitness/', include(apps.fitness.urls)),
+    # path('community/', include(apps.community)),
 ]

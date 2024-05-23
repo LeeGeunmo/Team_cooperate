@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 운동 목표 입력</title>
+</head>
+<body>
+    <h1>운동 목표 입력</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="fitness_goal">운동 목표:</label>
+        <select name="fitness_goal" id="fitness_goal" required>
+            <option value="muscle_gain">근성장</option>
+            <option value="diet">다이어트</option>
+            <option value="bulk_up">벌크업</option>
+        </select><br>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>
